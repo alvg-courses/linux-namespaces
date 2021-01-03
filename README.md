@@ -1,50 +1,24 @@
-## Part-1 UTS namespace isolation understanding
-```
-$> git checkout part-1
-$> make
-```
- Only user namespace can be done without sudo
-```
-$> sudo ./isolate sh
-```
- above commands gets into new shell
-```
-%> hostname
-blah 1 (original)
-%> hostname blah 2
-%> hostname
-blah 2
-```
- On a different shell
-```
-$> hostname
-blah 1
-```
+Simple example functions for understanding different aspects of Linux namespaces.
+Each folder illustrates different namespace isolation methods.
 
-## Part-2 User Namespace
-```
-$> git checkout part-2
-$> make
-```
- Note, no need of sudo!
-```
-$> ./isolate sh
-```
- above command gets into new shell
-```
-%> whoami
-root
-```
- get process id
-```
-%> echo $$
-blah
-%> cat /proc/blah/uid_map
-0 uid 1
-%> exit
-```
- Now, comment call to "prepare_userns" in isolate.c inside main method
- Repeat the above steps
- This suggests the importance of userns setup needed before creating isolation
+1. UTS namespace
+2. User ID namespace
+3. Mount and PID namespace
+4. Network Namespace
 
-## Part-3  Mount Namespace [Filesystem - minimal linux-alpine]
+Primary commands corresponding to namespace usage are clone with set of flags, and
+unshare and setns. Feel free to look these up on the internet. Especially the man pages.
+
+Understanding each aspect of namespace will require one to check which commands to run and
+figure out outputs in each scenario, expectedly. Use all sorts of commands inside these (child) shells.
+
+We use $ symbol to denote parent shell and % for child shell.
+
+## Minimal Alpine Linux installation.
+
+Create rootfs in respective folders i.e. mount and network.
+```
+$ wget http://dl-cdn.alpinelinux.org/alpine/v3.10/releases/x86_64/alpine-minirootfs-3.10.1-x86_64.tar.gz
+$ mkdir rootfs
+$ tar -xzf alpine-minirootfs-3.10.1-x86_64.tar.gz -C rootfs
+```

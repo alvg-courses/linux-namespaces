@@ -1,4 +1,4 @@
-PROG=isolate
+PROG=host
 CFLAGS=-I
 
 %.o: %.c

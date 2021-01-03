@@ -1,4 +1,4 @@
-PROG=isolate
+PROG=uid
 CFLAGS=-I
 
 %.o: %.c

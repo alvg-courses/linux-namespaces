@@ -1,4 +1,4 @@
-PROG=isolate
+PROG=mount
 CFLAGS=-I
 
 %.o: %.c

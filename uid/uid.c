@@ -102,7 +102,7 @@ static void prepare_userns(int pid)
     char path[100];
     char line[100];
 
-    int uid = getuid()
+    int uid = getuid();
 
     sprintf(path, "/proc/%d/uid_map", pid);
     sprintf(line, "0 %d 1\n", uid);

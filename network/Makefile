@@ -1,4 +1,4 @@
-PROG=isolate
+PROG=network
 CFLAGS=-I
 
 %.o: %.c
