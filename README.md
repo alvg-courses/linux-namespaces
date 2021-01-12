@@ -12,13 +12,15 @@ unshare and setns. Feel free to look these up on the internet. Especially the ma
 Understanding each aspect of namespace will require one to check which commands to run and
 figure out outputs in each scenario, expectedly. Use all sorts of commands inside these (child) shells.
 
-We use $ symbol to denote parent shell and % for child shell.
+We use $ symbol to denote parent shell and % for child (or the sandboxed) shell.
 
 ## Minimal Alpine Linux installation.
 
-Create rootfs in respective folders i.e. mount and network.
+Create rootfs in respective folders i.e. mount and network before running the respective executables.
 ```
 $ wget http://dl-cdn.alpinelinux.org/alpine/v3.10/releases/x86_64/alpine-minirootfs-3.10.1-x86_64.tar.gz
 $ mkdir rootfs
 $ tar -xzf alpine-minirootfs-3.10.1-x86_64.tar.gz -C rootfs
 ```
+
+Credits: u/iffyio.

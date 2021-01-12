@@ -128,7 +128,7 @@ static void prepare_mntns(char *rootfs)
     if (chdir(mnt))
         die("Failed to chdir to rootfs mounted at %s: %m\n", mnt);
 
-    const char *put_old = ".put_old";
+    const char *put_old = "put_old";
     if (mkdir(put_old, 0777) && errno != EEXIST)
         die("Failed to mkdir put_old %s: %m\n", put_old);
 
